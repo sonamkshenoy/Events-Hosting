@@ -9,6 +9,11 @@
     </div>
     <h4>{{event.title}}</h4>
     <p>{{event.body|linebreaks}}</p>
+    <br>
+    <br>
+    <p>Category: {{event.category}}</p>
+    <p>Date: {{event.datetime}} to {{event.endtime}}</p>
+    <p>Price: Rs{{event.price}}</p>
 
 
   <form class="" action="/submit/" method="post">
