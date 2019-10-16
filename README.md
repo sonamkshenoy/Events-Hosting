@@ -4,8 +4,7 @@ A Django app that aids users to browse and book events, with easy management of 
 
 To run the application, run the following commands:
 ```
-python manage.py makemigrations Events-Hosting
-python manage.py migrate
+cd EventsHosting
 python manage.py runserver
 ```
 
@@ -26,3 +25,8 @@ Moreover, it is highly recommended that the slug be closely related to the event
 A user cannot book more than one ticket for an event, but can book multiple events. This is taken care of, through the email-id of the user.
 
 
+To add any extra field to the model, make the changes in models.py and then run,
+```
+python manage.py makemigrations Events-Hosting
+python manage.py migrate
+```
