@@ -5,6 +5,7 @@ A Django app that aids users to browse and book events, with easy management of 
 To run the application, run the following commands:
 ```
 cd EventsHosting
+pip install -r requirements.txt
 python manage.py runserver
 ```
 
