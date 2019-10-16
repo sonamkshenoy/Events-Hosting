@@ -1,0 +1,40 @@
+{%extends 'basetemplate.html'%}
+{%block content%}
+    <h1>Events</h1>
+    <div class="events">
+
+      <div class="row">
+      {%for event in events%}
+        {%if event.currentnum < event.maxnum%}
+
+
+            <div class="col s12 m7 l4">
+              <div class="card">
+                <div class="card-image responsive-img">
+                  <img style="height:200px" src="/{{event.image.url}}"/>
+                </div>
+
+                <div class="card-content">
+                  <span class="card-title" style="height:70px">{{event.title}}</span>
+                  <p>{{event.snippet}}</p>
+                  <br>
+                  <p>Category: {{event.category}}</p>
+                  <p>Date: {{event.datetime}} to {{event.endtime}}</p>
+                  <p>Price: Rs{{event.price}}</p>
+                  <br><br>
+                  <a href="/{{event.slug}}">
+                  <button class="waves-effect red accent-4 btn white-text" style="width:80%">
+                    Read more!
+                  </button>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+
+        {%endif%}
+
+      {%endfor%}
+      </div>
+    </div>
+{%endblock%}

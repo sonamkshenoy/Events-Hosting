@@ -1,0 +1,36 @@
+{%extends 'basetemplate.html'%}
+
+{%block content%}
+
+  {% if success %}
+
+  <h5>Hey {{name}}! You have successfully booked the event: <strong>{{event.title}}</strong></h5>
+  <h5>Make note of your ticket ID. This will be your ticket for the event so keep it safely!</h5>
+
+  <table>
+      <thead>
+        <tr>
+            <th>Name</th>
+            <th>Ticket ID</th>
+            <th>Email Id</th>
+            <th>Phone number</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>{{name}}</td>
+          <td>{{uid}}</td>
+          <td>{{emailid}}</td>
+          <td>{{phonenumber}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  {% endif %}
+
+  {% if error %}
+    <h4>Hey {{name}}! {{error}}</h4>
+  {% endif %}
+
+{%endblock%}
