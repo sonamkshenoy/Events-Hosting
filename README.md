@@ -3,16 +3,16 @@ A Django app that aids users to browse and book events, with easy management of 
 
 
 To run the application, run the following commands:
-'''
+```
 python manage.py makemigrations Events-Hosting
 python manage.py migrate
 python manage.py runserver
-'''
+```
 
 At the moment, there are 5 events. By default, the maximum number of seats for an event is 10, but this can be changed through the admin panel. 
 
 
-###Admin credentials
+### Admin credentials
 Username:username
 Password:password
 
