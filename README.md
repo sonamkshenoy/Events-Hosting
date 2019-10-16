@@ -27,6 +27,6 @@ A user cannot book more than one ticket for an event, but can book multiple even
 
 To add any extra field to the model, make the changes in models.py and then run,
 ```
-python manage.py makemigrations Events-Hosting
+python manage.py makemigrations EventsHosting
 python manage.py migrate
 ```
