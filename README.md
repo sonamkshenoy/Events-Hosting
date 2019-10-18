@@ -9,14 +9,14 @@ pip install -r requirements.txt
 python manage.py runserver
 ```
 
-At the moment, there are 5 events. By default, the limit on the number of seats for an event is 10, which can however be changed through the admin panel. 
+At the moment, there are a few events. By default, the limit on the number of seats for an event is 10, which can however be changed through the admin panel.
 
 
 ### Admin credentials
 Username:username  
 Password:password
 
-The admin can add an event through the admin panel **through the section for "Category"**. On adding an event through this section, the event is automatically updated in the Events section too. To check a particular event, navigate to the "Events" section. To compare the various categories, navigate to "Categories" where the number of bookings for each event is shown beside the event name. For further details about the event and the users who have booked it, select the event and then, the "Edit" button beside it.
+The admin can add an event through the admin panel **through the section for "Events"**.
 
 Any changes made to a particular event will be reflected in both the Events and Category section.
 
