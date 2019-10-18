@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Event(models.Model):
     title = models.CharField(max_length=101)
     body = models.TextField()
@@ -15,11 +16,13 @@ class Event(models.Model):
     slug = models.SlugField()
 
 
-#User.objects.order_by('last_name', 'userprofile__title')
-
-
     def snippet(self):
         return self.body[:250]+"..."
 
     def __str__(self):
-        return self.title+"   -   "+self.category+"   -   "+str(self.currentnum)
+        return self.title #+"   -   "+self.category+"   -   "+str(self.currentnum)
+
+
+    # manufacturer = models.ForeignKey('Event', on_delete=models.CASCADE)
+
+#User.objects.order_by('last_name', 'userprofile__title')

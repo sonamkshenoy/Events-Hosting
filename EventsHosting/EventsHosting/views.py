@@ -18,8 +18,9 @@ def submit(request):
     event=Event.objects.get(slug=slug)
 
     if(emailid not in event.emaillist):
-        event.emaillist=event.emaillist+"Token ID:"+slug+str(event.currentnum)+ "\nEmail Id: "+emailid+ "\nName: "+name+ "\nPhone number:" + phonenumber+ "\n\n\n"
         event.currentnum+=1
+        event.emaillist=event.emaillist+"Token ID:"+slug+str(event.currentnum)+ "\nEmail Id: "+emailid+ "\nName: "+name+ "\nPhone number:" + phonenumber+ "\n\n\n"
+
         event.save()
         return render(request,'submitted.html', {'success':'sucess', 'name':name, 'uid':slug+str(event.currentnum) ,'emailid':emailid, 'phonenumber':phonenumber,'event':event})
     else:
