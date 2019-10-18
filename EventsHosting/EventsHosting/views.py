@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Event
+from .models import Event, Booking
 
 
 def events(request):
@@ -19,6 +19,8 @@ def submit(request):
 
     if(emailid not in event.emaillist):
         event.currentnum+=1
+        bookPerson = Booking(name= name, emailid = emailid, token=slug+str(event.currentnum), event=event, category=event.category)
+        bookPerson.save()
         event.emaillist=event.emaillist+"Token ID:"+slug+str(event.currentnum)+ "\nEmail Id: "+emailid+ "\nName: "+name+ "\nPhone number:" + phonenumber+ "\n\n\n"
 
         event.save()
