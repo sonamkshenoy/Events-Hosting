@@ -16,7 +16,10 @@ At the moment, there are 5 events. By default, the limit on the number of seats 
 Username:username  
 Password:password
 
-The admin can add an event through the admin panel.
+The admin can add an event through the admin panel **through the section for "Category"**. On adding an event through this section, the event is automatically updated in the Events section too. To check a particular event, navigate to the "Events" section. To compare the various categories, navigate to "Categories" where the number of bookings for each event is shown beside the event name. For further details about the event and the users who have booked it, select the event and then, the "Edit" button beside it.
+
+Any changes made to a particular event will be reflected in both the Events and Category section.
+
 Also, the admin can see info of all the users who have booked a ticket for the event.
 
 **Note that the slug field should be small (5-8 characters) and **unique** since it will be used to generate a unique ID for each user who has booked a ticket.
