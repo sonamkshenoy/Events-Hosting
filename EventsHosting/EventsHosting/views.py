@@ -4,16 +4,18 @@ from .models import Event, Booking
 # Display all events
 def events(request):
     events = Event.objects.all()
-    return render(request,'events.html',{'events':events})
+    finalevents=[]
+    for event in events:
+        if(len(Booking.objects.all().filter(event__title=event))<event.maxnum):
+            finalevents.append(event)
+
+    # Check if number of bookings are greater than maximum number
+
+    return render(request,'events.html',{'events':finalevents})
 
 # Display details
 def details(request,slug):
     event = Event.objects.get(slug=slug)
-    bookings = Booking.objects.all().filter(event__title=event)
-
-    # Check if number of bookings are greater than maximum number
-    if(len(bookings)>=event.maxnum):
-        return render(request, 'eventdetail.html',{'event':event, 'filled':'Filled'})
     return render(request, 'eventdetail.html',{'event':event})
 
 # Confirm booking
