@@ -1,8 +1,7 @@
 {%extends 'basetemplate.html'%}
 {%load static%}
 {%block content%}
-    <!-- <img src="{%static 'bhangra.jpg'%}" alt=""> -->
-    <!-- <img src="{{event.image}}" alt=""> -->
+
 
     <div style="width:600px,height:800px" class="container">
       <img  class='responsive-img' src="/{{event.image.url}}" alt="">
@@ -12,34 +11,45 @@
     <br>
     <br>
     <p>Category: {{event.category}}</p>
-    <p>Date: {{event.datetime}} to {{event.endtime}}</p>
-    <p>Price: Rs{{event.price}}</p>
+    <p>Date: {{event.startDateTime}} to {{event.endtime}}</p>
+    <p>Price: Rs {{event.price}}</p>
+    <br><br>
 
-
-  <form class="" action="/submit/" method="post">
-    {% csrf_token %}
-    <input type="hidden" name="slug-to-mark" value="{{event.slug}}"/>
-    <div class="container section">
-      <div id='output' class='section'></div>
-      <div id="feedback"></div>
-      <h4>Book this event!</h4>
-      <div class='input-field'>
-        <input type="text" id='handle' name="name"/>
-        <label for="handle">Your Name</label>
-      </div>
-      <div class='input-field'>
-        <input type="text" id='emailid' name="emailid"/>
-        <label for="message">Your Email ID</label>
-      </div>
-      <div class='input-field'>
-        <input type="number" id='phonenumber' name="phonenumber"/>
-        <label for="phonenumber">Your Phone Number</label>
-      </div>
-      <div class="input-field center">
-        <button class='btn red accent-4' id="send">Book</button>
-      </div>
+    {%if filled%}
+    <div class="container">
+      <p class="btn pulse btn-large red accent-4 center-align">TICKETS SOLD OUT!!!</p>
+      <br><br><br><br><br>
     </div>
-  </form>
+
+    {% else %}
+
+        <form class="" action="/submit/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="slug-to-mark" value="{{event.slug}}"/>
+          <div class="container section">
+            <div id='output' class='section'></div>
+            <div id="feedback"></div>
+            <h4>Book this event!</h4>
+            <div class='input-field'>
+              <input type="text" id='handle' name="name"/>
+              <label for="handle">Your Name</label>
+            </div>
+            <div class='input-field'>
+              <input type="text" id='emailid' name="emailid"/>
+              <label for="message">Your Email ID</label>
+            </div>
+            <div class='input-field'>
+              <input type="number" id='phonenumber' name="phonenumber"/>
+              <label for="phonenumber">Your Phone Number</label>
+            </div>
+            <div class="input-field center">
+              <button class='btn red accent-4' id="send">Book</button>
+            </div>
+          </div>
+        </form>
+
+    {%endif%}
+
 
 
 {%endblock%}

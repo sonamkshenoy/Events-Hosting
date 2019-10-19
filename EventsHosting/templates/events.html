@@ -5,8 +5,6 @@
 
       <div class="row">
       {%for event in events%}
-        {%if event.currentnum < event.maxnum%}
-
 
             <div class="col s12 m7 l4">
               <div class="card">
@@ -19,8 +17,8 @@
                   <p style="height:160px">{{event.snippet}}</p>
                   <br>
                   <p>Category: {{event.category}}</p>
-                  <p>Date: {{event.datetime}} to {{event.endtime}}</p>
-                  <p>Price: Rs{{event.price}}</p>
+                  <p>Date: {{event.startDateTime}} to {{event.endtime}}</p>
+                  <p>Price: Rs {{event.price}}</p>
                   <br><br>
                   <a href="/{{event.slug}}">
                   <button class="waves-effect red accent-4 btn white-text" style="width:80%">
@@ -32,7 +30,6 @@
               </div>
             </div>
 
-        {%endif%}
 
       {%endfor%}
       </div>

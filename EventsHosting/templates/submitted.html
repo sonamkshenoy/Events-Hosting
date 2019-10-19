@@ -4,7 +4,7 @@
 
   {% if success %}
 
-  <h5>Hey {{name}}! You have successfully booked the event: <strong>{{event.title}}</strong></h5>
+  <h5>Hey {{bookperson.name}}! You have successfully booked the event: <strong>{{event.title}}</strong></h5>
   <h5>Make note of your ticket ID. This will be your ticket for the event so keep it safely!</h5>
 
   <table>
@@ -19,10 +19,10 @@
 
       <tbody>
         <tr>
-          <td>{{name}}</td>
-          <td>{{uid}}</td>
-          <td>{{emailid}}</td>
-          <td>{{phonenumber}}</td>
+          <td>{{bookPerson.name}}</td>
+          <td>{{bookPerson.token}}</td>
+          <td>{{bookPerson.emailid}}</td>
+          <td>{{bookPerson.phonenumber}}</td>
         </tr>
       </tbody>
     </table>

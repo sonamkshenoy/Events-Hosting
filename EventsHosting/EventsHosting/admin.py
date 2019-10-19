@@ -12,16 +12,21 @@ class CategoryListFilter(admin.SimpleListFilter):
 
     def lookups(self, request, model_admin):
         queryset = Booking.objects.all()
-        return [('Fun','Fun'),('Art & Craft','Art & Craft'),('Education','Education')]
+        categories = Category.objects.all()
+        # Add events to filter
+        queryList = []
+        for i in categories:
+            queryList.append((i.category, i.category))
+        return queryList
 
     def queryset(self, request, queryset):
         print(self.value())
         if self.value():
-            return queryset.filter(category__category=self.value())
+            return queryset.filter(event__category__category=self.value())
         return queryset
 
 
 @admin.register(Booking)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'event', 'category',)
+    list_display = ('token', 'name', 'emailid', 'event')
     list_filter = (CategoryListFilter, )
