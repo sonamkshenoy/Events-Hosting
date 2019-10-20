@@ -31,7 +31,7 @@ Event booking form isn't made available (in Master branch) or the events aren't 
 The format for the token ID is <slug_name><current_num> where slug_name is the slug and current_num is an indicator of the number of users who have booked the ticket till now.
 Moreover, it is highly recommended that the slug be closely related to the event.**
 
-A user cannot book more than one ticket for an event, but can book multiple events. This is taken care of, through the email-id of the user.
+A user can book more than one ticket for an event and check their bookings too with their Email ID.
 
 
 To add any extra field to the model, make the changes in models.py and then run,
