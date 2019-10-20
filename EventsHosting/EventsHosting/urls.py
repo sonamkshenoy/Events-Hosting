@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.events, name='events'),
     path('submit/',views.submit),
+    path('viewBookings',views.viewBookings),
     path('<slug:slug>', views.details, name='details')
 ]
 

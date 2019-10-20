@@ -1,0 +1,52 @@
+{%extends 'basetemplate.html'%}
+{%block content%}
+
+
+<form class="" action="/viewBookings" method="post">
+  {% csrf_token %}
+  <div class="container section">
+    <div id='output' class='section'></div>
+    <div id="feedback"></div>
+    <h4>Check the events you have booked a ticket for!</h4>
+    <div class='input-field'>
+      <input type="text" id='handle' name="emailid"/>
+      <label for="handle">Your Email ID</label>
+    </div>
+    <div class="input-field center">
+      <button class='btn red accent-4' id="send">Check</button>
+    </div>
+  </div>
+</form>
+
+{% if bookings %}
+<table>
+    <thead>
+      <tr>
+          <th>Name</th>
+          <th>Ticket ID</th>
+          <th>Event</th>
+          <th>Phone number</th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      {% for booking in bookings %}
+      <tr>
+        <td>{{booking.name}}</td>
+        <td>{{booking.token}}</td>
+        <td>{{booking.event.title}}</td>
+        <td>{{booking.phonenumber}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{%elif check%}
+<div class="container">
+  <p>There are no bookings by this Email ID.</p>
+</div>
+{% endif %}
+
+
+{%endblock%}
