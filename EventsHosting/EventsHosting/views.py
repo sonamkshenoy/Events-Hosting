@@ -21,7 +21,7 @@ def details(request,slug):
 # Confirm booking
 def submit(request):
     name=request.POST.get('name')
-    emailid=request.POST.get('emailid')#.lower()
+    emailid=request.POST.get('emailid').lower()
     phonenumber=request.POST.get('phonenumber')
     slug = request.POST.get('slug-to-mark')
     event = Event.objects.get(slug=slug)
@@ -46,7 +46,7 @@ def submit(request):
 
 def viewBookings(request):
     if(request.method=="POST"):
-        emailid = request.POST['emailid']#.lower()
+        emailid = request.POST['emailid'].lower()
         print(emailid)
         bookings = Booking.objects.all().filter(emailid=emailid)
         print(bookings)
