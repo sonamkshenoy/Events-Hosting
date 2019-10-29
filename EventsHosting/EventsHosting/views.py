@@ -1,11 +1,15 @@
 from django.shortcuts import render
 from .models import Event, Booking
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 
 
 # Display all events
 def events(request):
-    events = Event.objects.all()
+    events_list = Event.objects.all()
+    paginator = Paginator(events_list,2)
+    page=request.GET.get('page')
+    events = paginator.get_page(page)
     return render(request,'events.html',{'events':events})
 
 # Display details
