@@ -48,8 +48,89 @@
           </div>
         </form>
 
+        <div class="Booking-section">
+          <div class="input-field center">
+            <button id="continueBooking" type="button" class='btn red accent-4' name="button">Continue Booking</button>
+          </div>
+
+          <div id="Tickets-Section" class="notActive">
+              {% if tickets.paid %}
+              <div class='input-field'>
+                <input placeholder="0" type="number" id='PaidTicket' name="PaidTicketCost"/>
+                <label for="PaidTicket">Paid Ticket: Cost for one is Rs {{tickets.paidCost}}</label>
+              </div>
+              {% endif %}
+              {% if tickets.free %}
+              <div class='input-field'>
+                <input placeholder="0" type="number" id='FreeTicket' name="FreeTicketCost"/>
+                <label for="FreeTicket">Free Ticket</label>
+              </div>
+              {% endif %}
+              {% if tickets.donation %}
+              <div class='input-field'>
+                <input placeholder="0" type="number" id='DonationTicket' name="DonationTicketCost"/>
+                <label for="DonationTicket">Donation Ticket</label>
+              </div>
+              {% endif %}
+            <div class="input-field center">
+              <button id="ticketsDone" type="button" class='btn red accent-4' name="button">Proceed</button>
+            </div>
+          </div>
+
+          <div class="CostSection">
+            <h3>Cost till now is: {{totalCost}}</h3>
+            <h4>Do you have a coupon?</h4>
+            <button type="button" name="button">Yes</button>
+            <ul class="insertCouponBox">
+              <li>
+
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+
+
+        <!-- Never forget CDN!! :') ' -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+          $(function(){
+            $("#continueBooking").on('click',function(){
+              $(this).fadeOut(500);
+              $(this).addClass('notActive');
+              $('#Tickets-Section').removeClass('notActive').addClass('Active');
+            });
+          });
+        </script>
+
+        <script type="text/javascript">
+          $(function(){
+            $("#ticketsDone").on('click',function(){
+              var ticketsNum = {
+                paidnum = $("#PaidTicket").val(),
+                freenum = $('#FreeTicket').val(),
+                donationnum = $("#DonationTicket").val(),
+              }
+
+              $.ajax({
+                type:POST,
+                url:"/calcCost",
+                data:ticketsNum,
+                success: function(cost){
+                  $(this).fadeOut(500);
+                  $(this).addClass('notActive');
+                  $('#CostSection').removeClass('notActive').addClass('Active');
+                }
+              });
+            });
+          });
+        </script>
+
     {%endif%}
 
+    <br><br><br><br><br>
 
 
 {%endblock%}

@@ -1,0 +1,4 @@
+whythis/
+!**/*.pyc
+EventsHosting/EventsHosting/__pycache__/
+EventsHosting/EventsHosting/migrations/__pycache__/

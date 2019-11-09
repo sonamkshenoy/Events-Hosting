@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Event, Booking
+from .models import *
 from django.http import HttpResponse
 
 
@@ -12,11 +12,15 @@ def events(request):
 def details(request,slug):
     event = Event.objects.get(slug=slug)
     bookings = Booking.objects.all().filter(event__title=event)
+    eventTickets = EventTickets.objects.all()
+    for eventdet in eventTickets:
+        print(eventdet.eventName)
+        print(eventdet.tickets.all())
 
     # Check if number of bookings are greater than maximum number
     if(len(bookings)>=event.maxnum):
         return render(request, 'eventdetail.html',{'event':event, 'filled':'Filled'})
-    return render(request, 'eventdetail.html',{'event':event})
+    return render(request, 'eventdetail.html',{'event':event,'tickets':{'paid':True, 'paidCost':500, 'free':True, 'donation':False}})
 
 # Confirm booking
 def submit(request):

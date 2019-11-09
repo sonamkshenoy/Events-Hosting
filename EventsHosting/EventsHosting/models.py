@@ -6,6 +6,20 @@ class Category(models.Model):
     def __str__(self):
         return self.category
 
+class TicketType(models.Model):
+    label = models.CharField(max_length=101)
+    cost = models.IntegerField()
+
+    def __str__(self):
+        return self.label
+
+class EventTickets(models.Model):
+    eventName = models.CharField(max_length=101)
+    tickets = models.ManyToManyField(TicketType)
+    def __str__(self):
+        return self.eventName
+
+
 class Event(models.Model):
     title = models.CharField(max_length=101)
     body = models.TextField()

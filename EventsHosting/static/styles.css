@@ -1,0 +1,7 @@
+.notActive{
+  display: none;
+}
+
+.Active{
+  display: block;
+}
