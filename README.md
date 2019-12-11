@@ -12,9 +12,7 @@ python manage.py runserver
 At the moment, there are a few events. By default, the limit on the number of seats for an event is 10, which can however be changed through the admin panel.
 
 
-### Admin credentials
-Username:username  
-Password:password
+### Admin features  
 
 The admin can add an event through the admin panel **through the section for "Events"**.
 
