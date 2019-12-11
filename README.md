@@ -25,9 +25,9 @@ The category filters have been dynamically added; thus if any category is delete
 
 Event booking form isn't made available (in Master branch) or the events aren't displayed (in ModificationNoDisplay branch) if all tickets for that particular event are sold.
 
-**Note that the slug field should be small (5-8 characters) and **unique** since it will be used to generate a unique ID for each user who has booked a ticket.
+**Note that the slug field should be small (5-8 characters) and **unique** since it will be used to generate a unique ID for each user who has booked a ticket.**
 The format for the token ID is <slug_name><current_num> where slug_name is the slug and current_num is an indicator of the number of users who have booked the ticket till now.
-Moreover, it is highly recommended that the slug be closely related to the event.**
+Moreover, it is highly recommended that the slug be closely related to the event.
 
 A user can book more than one ticket for an event and check their bookings too with their Email ID.
 
