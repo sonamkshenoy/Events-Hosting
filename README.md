@@ -21,9 +21,12 @@ Similarly any changes made to an event will be seen in the booking under that ev
 
 The admin can see info of all the users who have booked a ticket for the event and filter them based on a category.
 
-The category filters have been dynamically added; thus if any category is deleted or added, the admin **need not** manually add the category to the filter. It will automatically be updated. All they have to do is add a new category to the "Category" section.  
+The category filters have been dynamically added to the events model; thus if any category is deleted or added, the admin **need not** manually add the category to the filter. It will automatically be updated. All they have to do is add a new category to the "Category" model of the admin panel.  
 
-Event booking form isn't made available (in Master branch) or the events aren't displayed (in ModificationNoDisplay branch) if all tickets for that particular event are sold.
+Event booking form isn't made available (in Master branch) or the events aren't displayed (in ModificationNoDisplay branch) if tickets for that particular event are sold out.
+
+
+#### Note
 
 **Make sure that the slug field is small (5-8 characters) and **unique** since it will be used to generate a unique ID for each user who has booked a ticket.**
 The format for the token ID is `<slug_name><current_num>` where slug_name is the slug and current_num is an indicator of the number of users who have booked the ticket till now.
